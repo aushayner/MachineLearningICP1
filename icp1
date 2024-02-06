@@ -1,0 +1,187 @@
+import math
+
+
+
+def problem1():
+    ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+
+    ages.sort()
+    print(ages)
+
+    #Basic operations
+    minAge = min(ages)
+    maxAge = max(ages)
+    ageRange = maxAge - minAge
+    print("Min age:", minAge)
+    print("Max age:", maxAge)
+    print("Range:", ageRange)
+
+
+    #Caluclate median; consider the split
+    n = len(ages)
+
+    medianIndex =  n / 2
+    agesMedian = (ages[math.floor(medianIndex)] + ages[math.ceil(medianIndex)]) / 2
+    print("Median:", agesMedian)
+
+    #Calculate Mean
+    agesSum = sum(ages)
+
+    meanAge = agesSum / n
+
+    print("Mean: ", meanAge)
+
+
+def problem2():
+
+    #dog dictionary definition
+    dog = {
+        "name":"Bob",
+        "color":"Brown",
+        "breed":"Bull Dog",
+        "legs":3,
+        "age":5
+
+    }
+    #student dictionary definition
+    student = {
+        "first_name":"Timmy",
+        "last_name":"Shallots",
+        "gender":"M",
+        "age": 20,
+        "marital_status": "Single",
+        "skills": ["Acting"],
+        "country": "United Kingdom",
+        "city": "Perth",
+        "address": "2233 Tenton Rd."
+    }
+
+    #access + modify student and dog
+    studentLength = len(student)
+    print("Length of student dictionary:", studentLength)
+    print("Data type of student skill:", type(student["skills"]))
+
+    student["skills"] += ["Cooking"]
+    print("Skills:", student["skills"])
+
+    studentKeys = student.keys()
+    dogKeys = dog.keys()
+
+    studentValues = student.values()
+    dogValues = dog.values()
+
+    print("Student Keys:", studentKeys)
+    print("Student Values:", studentValues)
+
+    print("Dog Keys:", dogKeys)
+    print("Dog Values:", dogValues)
+
+
+def problem3():
+    #Create tuples
+    brothers = ("John", "Paul", "George")
+    sisters = ("Joanne", "Paula", "Georgia")
+    #join tuples into a new tuple
+    siblings = brothers + sisters
+    #get tuple length
+    print(f"I have {len(siblings)} siblings.")
+    #join tuple with new values, create new tuple
+    my_family = ("Mom", "Dad") + siblings
+    print(my_family)
+
+def problem4():
+    it_companies = {'Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle', 'Amazon'}
+    A = {19, 22, 24, 20, 25, 26}
+    B = {19, 22, 20, 25, 26, 24, 28, 27}
+    age = {22, 19, 24, 25, 26, 24, 25, 24}
+
+    #access and modify the it_companies set
+    print(f"There are {len(it_companies)} companies.")
+    it_companies.add("Twitter")
+    print(it_companies)
+    it_companies.update({"Intel", "Samsung"})
+    print(it_companies)
+    it_companies.remove("Samsung")
+    print(it_companies)
+    it_companies.discard("Samsung") #discard does not create an error if the item does not exist
+    print(it_companies)
+    
+    #JOIN
+    print(A.union(B))
+    #Intersection
+    print(A.intersection(B))
+    #Subset?
+    print(A.issubset(B))
+    #Disjoint sets?
+    print(A.isdisjoint(B))
+    #join A with B and B with A
+    print(A.union(B.union(A)))
+    #symmetric difference
+    print(A.symmetric_difference(B))
+    #remove A and B
+    print(f"A: {A} B:{B}")
+    A.clear()
+    B.clear()
+    print(f"A: {A} B:{B}")
+
+    #convert list to set
+    print("Length of age list:", len(age))
+    age = set(age)
+    print("Lenfth of age set:", len(age))
+    print(type(age))
+
+def problem5():
+    #calculate cirumference
+    radius = 30
+    _circum_of_circle_ = 2 * math.pi * radius
+    print(f"The circumference of a circle with a radius of {radius} is {_circum_of_circle_}.")
+    #do the same with command line input
+    print("Enter a new radius: ")
+    radius = float(input())
+    _circum_of_circle_ = 2 * math.pi * radius
+    print(f"The circumference of a circle with a radius of {radius} is {_circum_of_circle_}.")
+
+def problem6():
+    sentance = "I am a teacher and I love to inspire and teach people"
+    #convert the string into a list of individual words
+    words = sentance.split(" ")
+    #convert the list into a set to remove duplicate
+    words = set(words)
+    print(words)
+    #Ouput the length of the set
+    print(f"There are {len(words)} unique words in the sentance.")
+
+def problem7():
+    #Output with escape characters
+    print("Name\t\tAge\tCountry\tCity\nAsabeneh\t250\tFinland\tHelsinki")
+
+def problem8():
+    #display variables using the string formatting method
+    radius = 10
+    area = 3.14 * radius ** 2
+    print(f"The area of a circle with radius {radius} is {area:.0f} meters square.")
+
+def problem9():
+    N = 5
+    L1 = []
+    L2 = []
+    #read wieghts of N student into a list using for loop
+    N = int(input("Enter number of students:"))
+    for i in range(0,N):
+        L1.append(float(input(f"Enter weight of student {i + 1}:")))
+    print(L1)
+    #convert weights into kilograms in a seperate list using for loop
+    for x in L1:
+        L2.append(x * 0.45359237)
+
+    print(L2)
+
+#problem1()
+#problem2()
+#problem3()
+#problem4()
+#problem5()
+#problem6()
+#problem7()
+#problem8()
+problem9()
